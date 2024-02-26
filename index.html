@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="./assets/css/line-awesome.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
+   <script defer src="./assets/js/index.js"></script>
+  <script
+    type="application/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+  ></script>
+  <script type="application/javascript">
+    (function () {
+      emailjs.init("tV4uPzjmtHiMmsQWh");
+    })();
+  </script>
 
   <body data-bs-spy="scroll" data-bs-target=".navbar">
     <!-- NAVBAR -->
@@ -460,7 +470,7 @@
       <!-- //BLOG -->
 
       <!-- CONTACT -->
-      <section id="contact" class="full-height px-lg-5">
+       <section id="contact" class="full-height px-lg-5">
         <div class="container">
           <div class="row justify-content-center text-center">
             <div class="col-lg-8 pb-4" data-aos="fade-up">
@@ -475,6 +485,7 @@
                     type="text"
                     class="form-control"
                     placeholder="Enter your name"
+                    id="name"
                   />
                 </div>
                 <div class="form-group col-md-6">
@@ -482,6 +493,7 @@
                     type="email"
                     class="form-control"
                     placeholder="Enter your email"
+                    id="email"
                   />
                 </div>
                 <div class="form-group col-12">
@@ -497,16 +509,26 @@
                     rows="4"
                     class="form-control"
                     placeholder="Enter your message"
+                    id="message"
                   ></textarea>
                 </div>
                 <div class="form-group col-12 d-grid">
                   <!-- <button type="" >Contact me</button> -->
-                  <a
+                  <button
                     class="btn btn-brand"
-                    target="_blank"
-                    href="https://www.fiverr.com/share/BXv59G"
-                    >Hire Me</a
+                    type="submit"
+                    onclick="sendMail(event)"
                   >
+                    Send Message
+                  </button>
+                  <div
+                    style="display: none"
+                    class="pt-2 text-center text-success"
+                    id="successMessage"
+                    role="alert"
+                  >
+                    Your Message Successfully Sent!
+                  </div>
                 </div>
               </form>
             </div>
